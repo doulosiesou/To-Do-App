@@ -1,0 +1,139 @@
+* {
+    background-color: rgb(120, 120, 120);
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root {
+    --foreground: #f5ffd6;
+    --background: #fa7eff;
+  }
+
+#container {
+    height: 100vh;
+    width: auto;
+    display: grid;
+    grid-template-columns: [c1] 1fr [c2] 3fr [c3];
+    grid-template-rows: [r1] .35fr [r2] 4fr [r3] .2fr [r4];
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    
+}
+
+#header {
+    text-align: left;
+    padding: 10px;
+    font-size: 24px;
+    font-weight: 700;
+    grid-column-start: c1;
+    grid-column-end: c3;
+    grid-row-start: r1;
+    grid-row-end: r2;
+    background-color: var(--foreground);
+    
+}
+
+#nav-panel{
+    background-color: var(--foreground);
+    gap: 10px;
+    grid-column-start: c1;
+    grid-column-end: c2;
+    grid-row-start: r2;
+    grid-row-end: r3;
+    display: flex;
+    flex-direction: column;
+}
+
+#nav-panel-top,
+#nav-panel-bottom {
+    
+    margin-top: 20px;
+    padding-left: 20px;
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: column;
+}
+
+#nav-panel-top>div{
+    margin-top: 20px;
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#nav-panel-bottom {
+    margin-top: 20px;
+    background-color: var(--foreground);
+    font-size: 24px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+}
+
+#add-project {
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#add-project-label {
+    background-color: var(--foreground);
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+#inbox-label,
+#today-label,
+#this-week-label {
+    padding-left: 10px;
+    margin: 0;
+}
+
+i {
+    margin: 0;
+    padding: 0;
+    background-color: var(--foreground);
+}
+
+#add-project-icon{
+    margin-left: 20px;
+}
+
+#nav-panel-top>div>p{
+    font-size: 18px;
+    margin-left: 10px;
+    background-color: var(--foreground);
+}
+
+#middle-section{
+    background-color: var(--foreground);
+}
+
+#display {
+    padding: 40px;
+    font-size: 24px;
+    grid-column-start: c2;
+    grid-column-end: c3;
+    grid-row-start: r2;
+    grid-row-end: r3;
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#display-title{
+    margin-top: 20px;
+    background-color: var(--foreground);
+}
+
+#footer {
+    background-color: var(--foreground);
+    grid-column-start: c1;
+    grid-column-end: c3;
+    grid-row-start: r3;
+    grid-row-end: r4;
+    text-align: center;
+}

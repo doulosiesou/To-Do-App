@@ -1,0 +1,34 @@
+This might be helpful to sort dates
+
+class Article {
+  constructor(title, date) {
+    this.title = title;
+    this.date = date;
+  }
+
+  static compare(articleA, articleB) {
+    return articleA.date - articleB.date;
+  }
+}
+
+// usage
+let articles = [
+  new Article("HTML", new Date(2019, 1, 1)),
+  new Article("CSS", new Date(2019, 0, 1)),
+  new Article("JavaScript", new Date(2019, 11, 1))
+];
+
+articles.sort(Article.compare);
+
+alert( articles[0].title ); // CSS
+
+https://javascript.info/static-properties-methods
+
+FontAwesome: <script src="https://kit.fontawesome.com/97922a4531.js" crossorigin="anonymous"></script>
+
+Checkmark icon: <i class="fa-regular fa-square-check"></i>
+Inbox icon: <i class="fa-solid fa-inbox"></i>
+Calender day icon: <i class="fa-solid fa-calendar-day"></i>
+Calendar week icon: <i class="fa-solid fa-calendar-week"></i>
+Tasks icon: <i class="fa-solid fa-list-check"></i>
+Plus icon: <i class="fa-solid fa-plus"></i>
