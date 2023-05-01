@@ -32,3 +32,40 @@ Calender day icon: <i class="fa-solid fa-calendar-day"></i>
 Calendar week icon: <i class="fa-solid fa-calendar-week"></i>
 Tasks icon: <i class="fa-solid fa-list-check"></i>
 Plus icon: <i class="fa-solid fa-plus"></i>
+
+I need an array to store the projects and to store the tasks. Maybe an array of objects, where each object is a project that includes an array of tasks
+
+I need a function which retrieves a project and associated tasks and then renders them onto the project display area. I can either do this with a table
+that displays each task, or as divs like cards that display a task's properties including:
+  
+  Checkmark for complete
+  Title
+  Description
+  Project
+  Due Date
+  Priority
+  'x' to delete the task from the list
+
+So a project will have a name and associated tasks while a task will have title, description, due date, priority, project and notes.
+
+Functionality:
+Inbox button - displays all tasks that do not have a project associated with them
+Today - sorts then displays all tasks that are due today with their associated projects
+This Week - sorts then displays all the tasks that are due this week with their associated projects
+
+So when one of these functions is pressed the results are displayed in the display area and display:
+  Task with title, description, due date, priority and notes AND project also a delete button to delete the task
+  
+Methods:
+  Sort method for Today
+  Sort method for This week
+  Maybe todayTasks pick all tasks for today
+        weekTasks pick all tasks for the week
+  Method to apply a new task to a project
+  Method to create a new project and add it to the project array
+  Method to create a new task and add it to the task array
+
+List of modules in use:
+  setDisplayTitle() - Takes user's click and displays appropriate title, In Box, Today, This Week
+  createBlankTask - Creates a blank task in the project display area
+ 

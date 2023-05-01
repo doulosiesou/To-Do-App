@@ -112,8 +112,6 @@ i {
 }
 
 #display {
-    padding: 40px;
-    font-size: 24px;
     grid-column-start: c2;
     grid-column-end: c3;
     grid-row-start: r2;
@@ -121,14 +119,63 @@ i {
     background-color: var(--foreground);
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px 0 0 10px;
+    margin: 0;
+}
+
+#display-head{
+    background-color: var(--foreground);
+    margin: 0;
+    padding-left: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
 #display-title{
-    margin-top: 20px;
+    font-weight: 500;
+    margin-top: 10px;
     background-color: var(--foreground);
 }
 
+.task-row {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+#project-list{
+    margin-right: 10px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#project-list>div{
+    font-size: 18px;
+    height: auto;
+    border: 1px rgb(120, 120, 120) solid;
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#project-list>div>p{
+    background-color: var(--foreground);
+}
+
+.task_delete_button{
+    background-color: white;
+    margin: 5px 0 5px 0;
+    padding: 0px 5px 0 5px;
+    font-size: 18px;
+    height: 25px;
+    border-radius: 5px;
+    text-align: center;
+}
 #footer {
     background-color: var(--foreground);
     grid-column-start: c1;
