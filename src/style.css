@@ -138,18 +138,18 @@ i {
     background-color: var(--foreground);
 }
 
-.task-row {
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    justify-content: space-between;
-}
-
 #project-list{
     margin-right: 10px;
     width: auto;
     display: flex;
     flex-direction: column;
+    background-color: var(--foreground);
+    
+}
+
+.task-row-form{
+    margin-top: 10px;
+    background-color: rgb(120, 120, 120);
 }
 
 #project-list>div{
@@ -163,10 +163,6 @@ i {
     justify-content: space-around;
 }
 
-#project-list>div>p{
-    background-color: var(--foreground);
-}
-
 .task_delete_button{
     background-color: white;
     margin: 5px 0 5px 0;
@@ -176,6 +172,26 @@ i {
     border-radius: 5px;
     text-align: center;
 }
+
+form{
+    margin: 5px;
+    width: auto;
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+form>input{
+    padding-left: 5px;
+    background-color: var(--foreground);
+    font-size: 18px;
+}
+
+input[type=text] {
+    border: 1px rgb(120, 120, 120) solid;
+}
+
 #footer {
     background-color: var(--foreground);
     grid-column-start: c1;

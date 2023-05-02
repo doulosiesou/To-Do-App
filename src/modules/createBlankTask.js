@@ -2,22 +2,18 @@
 export function createBlankTask(){
 
     const addDiv = document.createElement('div');
-    addDiv.className = 'task-row';
+    addDiv.className = 'task-row-form';
     
-    let taskDesc = 'description';
-    let taskDetail = 'details';
-    let project = 'project';
-    let dueDate = 'date';
-    let priority = 'priority';
-
     addDiv.innerHTML = 
-            `<input type="checkbox" id="done" name="done" value="yes">
-            <p class = "task_detail" id = "task-desc">${taskDesc}</p>
-            <p class = "task_detail" id = "task-detail">${taskDetail}</p>
-            <p class = "task_detail" id= "task-project">${project}</p>
-            <p class = "task_detail" id= "task-dueDate">${dueDate}</p>
-            <p class = "task_priority" id= "task-priority">${priority}</p>
+        `<form action="#" method="post">
+            <input type="checkbox" id="done" name="done" value="yes">
+            <input type="text" class = "task-desc" placeholder="description">
+            <input type="text" class = "task-detail" placeholder="details">
+            <input type="text" class = "task-project" placeholder="project">
+            <input type="text" class = "task-dueDate" placeholder="due date">
+            <input type="text" class = "task-priority" placeholder="priority">
             <button class = "task_delete_button">x</button>
-            `
-     return addDiv;
+        </form>`
+
+    return addDiv;
 };
