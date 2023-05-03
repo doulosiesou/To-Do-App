@@ -1,8 +1,7 @@
-export function createTask(desc, detail, project, dueDate, priority){
+export function Task(project='inbox',desc, dueDate, priority){
 
-    this.desc = desc;
-    this.detail = detail;
     this.project = project;
+    this.desc = desc;
     this.dueDate = dueDate;
     this.priority = priority;
 

@@ -6,14 +6,14 @@
 
 :root {
     --foreground: #f5ffd6;
-    --background: #fa7eff;
+    --background: rgb(120, 120, 120);
+    --form-background: rgba(245, 255, 214, 125);
   }
 
 #container {
     height: 100vh;
-    width: auto;
     display: grid;
-    grid-template-columns: [c1] 1fr [c2] 3fr [c3];
+    grid-template-columns: [c1] 1fr [c2] 2fr [c3];
     grid-template-rows: [r1] .35fr [r2] 4fr [r3] .2fr [r4];
     grid-column-gap: 5px;
     grid-row-gap: 5px;
@@ -24,7 +24,7 @@
     text-align: left;
     padding: 10px;
     font-size: 24px;
-    font-weight: 700;
+    font-weight: 600;
     grid-column-start: c1;
     grid-column-end: c3;
     grid-row-start: r1;
@@ -34,6 +34,7 @@
 }
 
 #nav-panel{
+    width: auto;
     background-color: var(--foreground);
     gap: 10px;
     grid-column-start: c1;
@@ -63,25 +64,27 @@
 }
 
 #nav-panel-bottom {
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: var(--foreground);
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
     display: flex;
     flex-direction: column;
 }
 
-#add-project {
-    background-color: var(--foreground);
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
 #add-project-label {
     background-color: var(--foreground);
     font-size: 18px;
-    margin-left: 10px;
+    margin-left: 2px;
+}
+
+#project-input{
+    margin: 0;
+    background-color: var(--foreground);
+}
+
+#new-project-input{
+    background-color: var(--form-background);
 }
 
 #inbox-label,
@@ -104,10 +107,6 @@ i {
 #nav-panel-top>div>p{
     font-size: 18px;
     margin-left: 10px;
-    background-color: var(--foreground);
-}
-
-#middle-section{
     background-color: var(--foreground);
 }
 
@@ -152,7 +151,7 @@ i {
     background-color: rgb(120, 120, 120);
 }
 
-#project-list>div{
+.task-row-form{
     font-size: 18px;
     height: auto;
     border: 1px rgb(120, 120, 120) solid;
