@@ -7,7 +7,7 @@
 :root {
     --foreground: #f5ffd6;
     --background: rgb(120, 120, 120);
-    --form-background: rgba(245, 255, 214, 125);
+    --form-background: rgba(245, 255, 214, 225);
   }
 
 #container {
@@ -85,6 +85,7 @@
 
 #new-project-input{
     background-color: var(--form-background);
+    border-radius: 5px;
 }
 
 #inbox-label,
@@ -138,6 +139,46 @@ i {
 }
 
 #project-list{
+    padding-left: 20px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--foreground);
+    
+}
+
+.projItem{
+    margin: 5px 5px 0 0;
+    background-color: var(--foreground);
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.projItem>p{
+    margin: 5px;
+    padding: 0 0 0 20px;
+    background-color: var(--foreground);
+}
+
+.proj-del-button{
+    width: 25px;
+    margin: 5px 20px 5px 0;
+    background-color: antiquewhite;
+    font-size: 12px;
+    padding: 3px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.new-div{
+    background-color: var(--foreground);
+}
+
+#task-list{
     margin-right: 10px;
     width: auto;
     display: flex;
@@ -149,10 +190,11 @@ i {
 .task-row-form{
     margin-top: 10px;
     background-color: rgb(120, 120, 120);
+    border-radius: 5px;
 }
 
 .task-row-form{
-    font-size: 18px;
+    font-size: 14px;
     height: auto;
     border: 1px rgb(120, 120, 120) solid;
     background-color: var(--foreground);
@@ -160,6 +202,11 @@ i {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+}
+
+input{
+    border-radius: 5px;
+    font-size: 14px;
 }
 
 .task_delete_button{
