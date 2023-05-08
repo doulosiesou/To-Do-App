@@ -151,6 +151,7 @@ i {
     margin: 5px 5px 0 0;
     background-color: var(--foreground);
     border: 1px solid gray;
+    border-radius: 5px;
     display: flex;
     flex-direction: row;
     align-items: center;
