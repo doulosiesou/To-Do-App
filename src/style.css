@@ -215,7 +215,7 @@ i {
 }
 
 .task-line-item{
-    padding: 2px;
+    /* padding: 2px; */
     font-size: 16px;
     background-color: var(--foreground);
     border-bottom: dashed 1px rgb(200, 200, 200);
@@ -232,8 +232,9 @@ i {
 .task-dueDate, 
 .task-priority{
     margin: 0;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     background-color: var(--foreground);
+    text-align: left;
 }
 
 input{

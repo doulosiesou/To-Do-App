@@ -1,6 +1,6 @@
 import { createProjectList } from "./createProjectList";
 
-export function assignDelBtns(deleteButtons, projectArray, projectList, projListText){
+export function assignDelProjBtns(deleteButtons, projectArray, projectList, projListText){
 
 
     for(let i of deleteButtons){

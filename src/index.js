@@ -3,7 +3,7 @@ import { setDisplayTitle } from './modules/setDisplayTitle'
 import { createBlankTask } from './modules/createBlankTask';
 import { Task } from './modules/createTask'
 import { createProjectList } from './modules/createProjectList';
-import { assignDelBtns } from './modules/deleteBtns';
+import { assignDelProjBtns } from './modules/deleteBtns';
 import { populateTaskList } from './modules/populateTaskList';
 
 // import webpack handlers for style sheets and images
@@ -75,7 +75,7 @@ newProjBtn.onclick = function(){
     projectList.appendChild(projListText);
      
     let deleteButtons = document.getElementsByClassName('proj-del-button')
-    assignDelBtns(deleteButtons, projectArray, projectList, projListText);
+    assignDelProjBtns(deleteButtons, projectArray, projectList, projListText);
 };
 
 // Create a new function to add tasks to a project
