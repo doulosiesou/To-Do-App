@@ -179,7 +179,7 @@ i {
     background-color: var(--foreground);
 }
 
-#task-list{
+#task-form{
     margin-right: 10px;
     width: auto;
     display: flex;
@@ -190,14 +190,10 @@ i {
 
 .task-row-form{
     margin-top: 10px;
-    background-color: rgb(120, 120, 120);
-    border-radius: 5px;
-}
-
-.task-row-form{
     font-size: 14px;
     height: auto;
     border: 1px rgb(120, 120, 120) solid;
+    border-radius: 5px;
     background-color: var(--foreground);
     display: flex;
     flex-direction: row;
@@ -205,12 +201,47 @@ i {
     justify-content: space-around;
 }
 
+#task-list{
+    margin: 20px;
+    font-size: 14px;
+    height: auto;
+    border: 1px rgb(120, 120, 120) solid;
+    /* border-radius: 5px; */
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.task-line-item{
+    padding: 2px;
+    font-size: 16px;
+    background-color: var(--foreground);
+    border-bottom: dashed 1px rgb(200, 200, 200);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+    width: 68vw;
+}
+
+.task-project, 
+.task-desc, 
+.task-dueDate, 
+.task-priority{
+    margin: 0;
+    padding-left: 10px;
+    background-color: var(--foreground);
+}
+
 input{
     border-radius: 5px;
     font-size: 14px;
 }
 
-.task_delete_button{
+.task-delete-button{
     background-color: white;
     margin: 5px 0 5px 0;
     padding: 0px 5px 0 5px;

@@ -1,4 +1,6 @@
-export function createProjectList(){
+import { populateTaskList } from './populateTaskList';
+
+export function createProjectList(taskArray){
 
     let projectList = document.querySelector('#project-list');
     let projectArray=[];
@@ -10,6 +12,8 @@ export function createProjectList(){
     
     for(let prj of projectArray){
 
+        let pname = String(prj);
+        console.log(pname);
         let index = projectArray.indexOf(prj);
 
         const displayTitle = document.querySelector('#display-title');
@@ -25,12 +29,14 @@ export function createProjectList(){
         projDelBtn.className = 'proj-del-button';
         projDelBtn.id = index;
 
-        projLineDiv.onclick = function() {
-            displayTitle.textContent = `${prj} ToDos`;
-        }
-
         projLineDiv.appendChild(addPara);
         projLineDiv.appendChild(projDelBtn);
+
+        projLineDiv.onclick = function() {
+            console.log(`pname = ${pname}`)
+            displayTitle.textContent = `${pname} ToDos`;
+            populateTaskList(taskArray, pname)
+        }
 
         newDiv.appendChild(projLineDiv); 
     };

@@ -6,12 +6,10 @@ export function createBlankTask(){
     
     addDiv.innerHTML = 
         `<form action="#" method="post">
-            <input type="checkbox" id="done" name="done" value="yes">
-            <input type="text" class = "task-project" placeholder="project">
-            <input type="text" class = "task-desc" placeholder="description">
-            <input type="text" class = "task-dueDate" placeholder="due date">
-            <input type="text" class = "task-priority" placeholder="priority">
-            <button class = "task_delete_button">x</button>
+            <input type="text" class = "task-project" id = "task-project" placeholder="project">
+            <input type="text" class = "task-desc" id = "task-desc" placeholder="description">
+            <input type="text" class = "task-dueDate" id = "task-dueDate" placeholder="due date">
+            <input type="text" class = "task-priority" id = "task-priority" placeholder="priority">
         </form>`
 
     return addDiv;
