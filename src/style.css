@@ -8,6 +8,7 @@
     --foreground: #f5ffd6;
     --background: rgb(120, 120, 120);
     --form-background: rgba(245, 255, 214, 225);
+    --light-gray: rgb(240, 235, 235);
   }
 
 #container {
@@ -149,7 +150,7 @@ i {
 
 .projItem{
     margin: 5px 5px 0 0;
-    background-color: var(--foreground);
+    background-color: var(--light-gray);
     border: 1px solid gray;
     border-radius: 5px;
     display: flex;
@@ -161,7 +162,7 @@ i {
 .projItem>p{
     margin: 5px;
     padding: 0 0 0 20px;
-    background-color: var(--foreground);
+    background-color: var(--light-gray);
 }
 
 .proj-del-button{
@@ -189,42 +190,49 @@ i {
 }
 
 .task-row-form{
-    margin-top: 10px;
+    margin-top: 20px;
     font-size: 14px;
-    height: auto;
+    width: auto;
     border: 1px rgb(120, 120, 120) solid;
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#task-table{
+    padding: 5px;
+    margin: 10px;
+    font-size: 18px;
+    width: auto;
+    border: 1px rgb(120, 120, 120) solid;
+    background-color: var(--foreground);
+}
+
+.task-row td{
+    padding: 5px;
+    background-color: var(--light-gray);
+    border: solid 1px rgb(120, 120, 120);
     border-radius: 5px;
-    background-color: var(--foreground);
+}
+
+.task-row td:last-child{
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
 }
 
-#task-list{
-    margin: 20px;
+.task-delete-button{
+    width: 25px;
+    margin: 5px 20px 5px 0;
+    background-color: antiquewhite;
     font-size: 14px;
-    height: auto;
-    border: 1px rgb(120, 120, 120) solid;
-    /* border-radius: 5px; */
-    background-color: var(--foreground);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.task-line-item{
-    /* padding: 2px; */
-    font-size: 16px;
-    background-color: var(--foreground);
-    border-bottom: dashed 1px rgb(200, 200, 200);
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    flex: 1;
-    width: 68vw;
+    padding: 3px;
+    text-align: center;
+    margin-right: 10px;
+    border-radius: 5px;
 }
 
 .task-project, 
@@ -242,8 +250,8 @@ input{
     font-size: 14px;
 }
 
-.task-delete-button{
-    background-color: white;
+.delete-button{
+    background-color: var(--light-gray);
     margin: 5px 0 5px 0;
     padding: 0px 5px 0 5px;
     font-size: 18px;
@@ -278,4 +286,7 @@ input[type=text] {
     grid-row-start: r3;
     grid-row-end: r4;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }

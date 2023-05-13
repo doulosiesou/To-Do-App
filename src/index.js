@@ -70,12 +70,16 @@ newProjBtn.onclick = function(){
     localStorage.projectArray = projectArray;
         
     projectList.innerHTML = '';
-    let projListText 
-    projListText = createProjectList(taskArray);
+    let projListText = createProjectList(taskArray);
     projectList.appendChild(projListText);
      
     let deleteButtons = document.getElementsByClassName('proj-del-button')
     assignDelProjBtns(deleteButtons, projectArray, projectList, projListText);
+
+    for(let prj of projectArray){
+        let projectDiv = document.querySelector('.projItem')
+        projectDiv.onclick = populateTaskList(taskArray, prj.project)
+    }
 };
 
 // Create a new function to add tasks to a project
@@ -99,9 +103,13 @@ addTaskBtn.onclick = function() {
     console.log(`taskArray is type ${typeof(taskArray)}`);
 
     taskArray.push(newTask);
-    populateTaskList(taskArray, pname);
+    var taskTableBody = document.getElementById('task-table-body');
+    console.log(`taskTAbleBody is type ${typeof(taskTableBody)}`);
+    let taskRow = populateTaskList(taskArray, pname);
+    console.log(`taskRow: ${typeof(taskRow)}`);
+    taskTableBody.insertRow(taskRow);
 
-    let taskDeleteButtons = document.querySelector('.task-delete-button')
+    // let taskDeleteButtons = document.querySelector('.task-delete-button')
 
 };
 
