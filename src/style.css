@@ -103,6 +103,7 @@ i {
 }
 
 #add-project-icon{
+    cursor: pointer;
     margin-left: 20px;
 }
 
@@ -124,13 +125,25 @@ i {
     margin: 0;
 }
 
-#display-head{
+.display-icons{
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: row;
+}
+
+#display-head1, #display-head2{
+    font-size: 18px;
     background-color: var(--foreground);
     margin: 0;
     padding-left: 10px;
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+#add-task-label, #refresh-label{
+    margin-left: 10px;
+    background-color: var(--foreground);
 }
 
 #display-title{
@@ -166,6 +179,7 @@ i {
 }
 
 .proj-del-button{
+    cursor: pointer;
     width: 25px;
     margin: 5px 20px 5px 0;
     background-color: antiquewhite;
@@ -174,6 +188,10 @@ i {
     text-align: center;
     margin-right: 10px;
     border-radius: 5px;
+}
+
+.project-click{
+    cursor: pointer;
 }
 
 .new-div{
@@ -202,22 +220,28 @@ i {
 }
 
 #task-table{
-    padding: 5px;
-    margin: 10px;
-    font-size: 18px;
+    padding: 2px;
+    margin: 10px 10px 10px 0;
+    font-size: 16px;
     width: auto;
     border: 1px rgb(120, 120, 120) solid;
     background-color: var(--foreground);
 }
 
 .task-row td{
-    padding: 5px;
+    pointer-events: none;
+    padding: 2px;
     background-color: var(--light-gray);
     border: solid 1px rgb(120, 120, 120);
     border-radius: 5px;
 }
 
+.task-row td:first-child{
+    width: 20px;
+}
+
 .task-row td:last-child{
+    width: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -225,6 +249,7 @@ i {
 }
 
 .task-delete-button{
+    pointer-events: all;
     width: 25px;
     margin: 5px 20px 5px 0;
     background-color: antiquewhite;

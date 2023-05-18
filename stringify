@@ -1,0 +1,24 @@
+https://blog.logrocket.com/localstorage-javascript-complete-guide/#storing-data-browser-with-localstorage
+
+localStorage.setItem('items', JSON.stringify(itemsArray));
+
+let project1 = "House Work";
+let project2 = "Yard Work";
+
+let task1 = ["Clean bathroom", "06-15-2023", "high"];
+let task2 = ["Clean refrigerator", "06-20-2023", "high"];
+let task3 = ["Mop floors", "06-21-2023", "low"];
+let project1Tasks = [task1, task2, task3];
+
+let task4 = ["Mow grass", "06-18-2023", "low"];
+let task5 = ["Trim bushes", "06-24-2023", "low"];
+let task6 = ["Rake leaves", "06-30-2023", "high"];
+let project2Tasks = [task4, task5, task6];
+
+localStorage.setItem(`${[project1]}`, JSON.stringify(project1Tasks));
+localStorage.setItem(`${[project2]}`, JSON.stringify(project2Tasks));
+
+const retrieveTask = JSON.parse(localStorage.getItem("House Work"));
+console.log(retrieveTask);
+
+localStorage.setItem(`projects`, JSON.stringify(projectArray));

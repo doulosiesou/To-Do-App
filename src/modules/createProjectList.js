@@ -1,41 +1,51 @@
 import { populateTaskList } from './populateTaskList';
+import { projDelBtn } from './deleteBtns'
+import { setDisplayTitle } from './setDisplayTitle'
 
-export function createProjectList(taskArray){
+export function createProjectList(){
 
-    let projectList = document.querySelector('#project-list');
-    let projectArray=[];
-    let pTemp = localStorage.getItem("projectArray").split(',');
-    projectArray = pTemp;
-
+    let projectArray = JSON.parse(localStorage.getItem('projects'));
+        
     let newDiv = document.createElement('div');
     newDiv.className = 'new-div';
-    
+
     for(let prj of projectArray){
 
         let pname = String(prj);
-        console.log(pname);
         let index = projectArray.indexOf(prj);
 
-        const displayTitle = document.querySelector('#display-title');
+        let displayTitle = document.querySelector('#display-title');
 
         let projLineDiv = document.createElement('div');
         projLineDiv.className = 'projItem'
 
         let addPara = document.createElement('p');
-        addPara.textContent = prj;
+        addPara.className = 'project-click'
+        addPara.textContent = pname;
+        addPara.onclick = function(){
+            setDisplayTitle(prj);
+            // populateTaskList(projectArray);
+        };
 
-        let projDelBtn = document.createElement('button')
-        projDelBtn.textContent = 'X'
-        projDelBtn.className = 'proj-del-button';
-        projDelBtn.id = index;
+        let projDeleteBtn = document.createElement('button')
+        projDeleteBtn.textContent = 'X'
+        projDeleteBtn.className = 'proj-del-button';
+        projDeleteBtn.id = index;
+        projDeleteBtn.onclick = function(){
+            projDelBtn(prj);
+        }
 
         projLineDiv.appendChild(addPara);
-        projLineDiv.appendChild(projDelBtn);
+        projLineDiv.appendChild(projDeleteBtn);
+
+        console.log(`In createProjectList Line 42 prj is ${prj}`)
+
+        // let taskArrayPrj = JSON.parse(localStorage.getItem(prj));
 
         projLineDiv.onclick = function() {
             console.log(`pname = ${pname}`)
             displayTitle.textContent = `${pname} ToDos`;
-            populateTaskList(taskArray, pname)
+            // populateTaskList(taskArrayPrj, pname);
         }
 
         newDiv.appendChild(projLineDiv); 

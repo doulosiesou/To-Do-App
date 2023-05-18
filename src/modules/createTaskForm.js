@@ -1,5 +1,5 @@
 
-export function createBlankTask(){
+export function createTaskForm(){
 
     const addDiv = document.createElement('div');
     addDiv.className = 'task-row-form';

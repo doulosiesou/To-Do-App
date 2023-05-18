@@ -16,5 +16,4 @@ export function setDisplayTitle(){
     thisWeek.onclick = function(){
         displayTitle.textContent = 'This Week\'s ToDo\'s';
     };
-
 }
