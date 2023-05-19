@@ -76,8 +76,7 @@ newProjBtn.onclick = function(){
 
     projectArray.push(newProjectName);
     localStorage.removeItem('projects');
-    localStorage.setItem(`projects`, JSON.stringify(projectArray));
-    
+    localStorage.setItem('projects', JSON.stringify(projectArray));    
     projectList.innerHTML = '';
     let projListText = createProjectList();
     projectList.appendChild(projListText);
@@ -97,33 +96,39 @@ addTaskBtn.onclick = function() {
 
     // Create a new task based on form values and push to taskArray
     let pname = taskProj.value;
+    let taskArray = JSON.parse(localStorage.getItem(pname));
     let newTask = new Task(taskProj.value, taskDesc.value, taskDueDate.value, taskPriority.value, taskArray)
+   
     taskArray.push(newTask);
+    localStorage.removeItem(pname);
+    localStorage.setItem(pname, JSON.stringify(taskArray));
 
     // Call function populateTaskList for selected project
     var taskTableBody = document.getElementById('task-table-body');
-    let taskRow = populateTaskList(taskArray, pname);
+    let taskRow = populateTaskList(pname);
     taskTableBody.insertRow(taskRow);
 };
 
+
+
+
 // Create a function to refresh the task table
+// const refreshButton = document.querySelector('#refresh-button');
 
-const refreshButton = document.querySelector('#refresh-button');
+// refreshButton.onclick = function(){
+//     // alert('You clicked the refresh button');
+//     var taskTableBody = document.getElementById('task-table-body');
+//     let taskTableRows = document.querySelectorAll('.task-row');
+//     let taskProj = document.getElementById('task-project');
+//     let pname = taskProj.value;
+//     if(taskTableRows) {
+//         for(let task of taskTableRows){
+//             taskTableBody.removeChild(task);
+//         };
 
-refreshButton.onclick = function(){
-    // alert('You clicked the refresh button');
-    var taskTableBody = document.getElementById('task-table-body');
-    let taskTableRows = document.querySelectorAll('.task-row');
-    let taskProj = document.getElementById('task-project');
-    let pname = taskProj.value;
-    if(taskTableRows) {
-        for(let task of taskTableRows){
-            taskTableBody.removeChild(task);
-        };
-
-    populateTaskList(taskArray, pname);
-    };
-};
+//     populateTaskList(taskArray, pname);
+//     };
+// };
 
 
 

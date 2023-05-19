@@ -1,6 +1,10 @@
-export function populateTaskList(taskArrayPrj, pname){
+export function populateTaskList(pname){
 
-    // let projectArray = window.localStorage.getItem('projects').split(',');
+    // let projectArray = JSON.parse(localStorage.getItem('projects'));
+    let prjTaskArray =  JSON.parse(localStorage.getItem(pname));
+    for(let task in prjTaskArray){
+        console.log(`in populateTaskList line 6 and task is ${task.desc}`);
+    }
     
     // Clear input fields in task form and change display title in 
     // task area for current project
@@ -17,8 +21,8 @@ export function populateTaskList(taskArrayPrj, pname){
     taskPriority.value = '';
     
      
-    // Select task table body to append rows from taskArrayPrj
-    var taskTableBody = document.getElementById('task-table-body');
+    // Select task table body to append rows from taskArray
+    let taskTableBody = document.getElementById('task-table-body');
     let taskTableRows = document.querySelectorAll('.task-row')
     if(taskTableRows){
         for(let task of taskTableRows){
@@ -27,12 +31,14 @@ export function populateTaskList(taskArrayPrj, pname){
 
 
     // Iterate through taskArrayPrj and create cells for task items to append to a new table row
-    for(let task of taskArrayPrj){
+    for(let task of prjTaskArray){
         
-        console.log(`In populateTaskList Line 32 and task is ${task}`);
+        console.log(`In populateTaskList Line 33 and taskArray for project ${pname} is ${task.desc}`);
+        let indx = prjTaskArray.indexOf(task);
+        console.log(`line 35 the index of the task to delete is ${indx}`);
 
-        let taskProject = document.querySelector('.task-project');
-        taskProject.value = pname;
+        // let taskProject = document.querySelector('.task-project');
+        // taskProject.value = pname;
         
         let taskRow = document.createElement('tr');
         taskRow.className = 'task-row'
@@ -53,7 +59,8 @@ export function populateTaskList(taskArrayPrj, pname){
         c4.innerText = task.dueDate;
         c5.innerText = "completed date"
         c6.innerText = task.priority;
-        c7.innerHTML = `<button class="task-delete-button" id = "${task.indx}">x</button>`
+        // c7.innerHTML = `<button class="task-delete-button" id = "${indx}">x</button>`
+        c7.innerHTML = `<input type="button" class="task-delete-button" id = "${indx}" value='x'>`
 
         // taskRow.appendChild(c0);
         taskRow.appendChild(c1);
@@ -65,23 +72,15 @@ export function populateTaskList(taskArrayPrj, pname){
         taskRow.appendChild(c7);
 
         taskTableBody.appendChild(taskRow);
-    };
 
-    let taskDeleteButtons = document.getElementsByClassName('task-delete-button');
-    console.log(taskDeleteButtons);
-    // for(let tdb of taskDeleteButtons){
-    //     // console.log(`adding event listener to ${tdb} task`)
-    //     console.log(`tdb is ${tdb.indx}`);
-    //     var indx = tdb.indx;
-    //     tdb.addEventListener('click', function(indx){
-            
-    //         console.log(`task index is ${task.indx}`);
-    //         taskArray.splice(indx + 1, 1);
-    //         console.log(`Now taskArray is ${taskArray}`);
-    //     });
-    // }
+        // const delTaskRow = function(task){
+        //     console.log(`Inside delTaskRow line 71 and task is ${task}`);
+        //     prjTaskArray.splice(task.id,1);
+        //     localStorage.removeItem(pname)
+        //     localStorage.setItem(pname, JSON.stringify(prjTaskArray))};
 
+        // }
+    }
+    
     return taskTableBody;
 };
-
-

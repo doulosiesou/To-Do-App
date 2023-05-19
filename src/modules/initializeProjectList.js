@@ -41,7 +41,7 @@ export function initializeProjectList(){
         addPara.onclick = function() {
             let displayTitle = document.querySelector('#display-title');
             displayTitle.textContent = `${pname} ToDos`;
-            // populateTaskList(pname);
+            populateTaskList(pname);
         }
 
         newDiv.appendChild(projLineDiv); 

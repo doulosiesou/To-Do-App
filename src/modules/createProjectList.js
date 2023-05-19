@@ -24,7 +24,7 @@ export function createProjectList(){
         addPara.textContent = pname;
         addPara.onclick = function(){
             setDisplayTitle(prj);
-            // populateTaskList(projectArray);
+            populateTaskList(prj);
         };
 
         let projDeleteBtn = document.createElement('button')
@@ -40,12 +40,19 @@ export function createProjectList(){
 
         console.log(`In createProjectList Line 42 prj is ${prj}`)
 
-        // let taskArrayPrj = JSON.parse(localStorage.getItem(prj));
-
         projLineDiv.onclick = function() {
             console.log(`pname = ${pname}`)
             displayTitle.textContent = `${pname} ToDos`;
-            // populateTaskList(taskArrayPrj, pname);
+            populateTaskList(pname);
+
+            // let taskDeleteButtons = document.getElementsByClassName('task-delete-button');
+            // console.log(`line 49 taskDeleteButtons are ${taskDeleteButtons}`);
+            // for(let button of taskDeleteButtons){
+            //     console.log('entered for loop to assign taskDeleteButton')
+            //     button.addEventListener("click", function(){
+            //         console.log(`hey! it worked you clicked the delete button`);
+            //     })
+            // }
         }
 
         newDiv.appendChild(projLineDiv); 
