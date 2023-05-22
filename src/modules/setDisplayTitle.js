@@ -1,6 +1,7 @@
-export function setDisplayTitle(){
+export function setDisplayTitle(prj){
 
     const displayTitle = document.querySelector('#display-title');
+    displayTitle.textContent = prj;
 
     const inbox = document.querySelector('#inbox-icon');
     inbox.onclick = function() {
@@ -16,4 +17,7 @@ export function setDisplayTitle(){
     thisWeek.onclick = function(){
         displayTitle.textContent = 'This Week\'s ToDo\'s';
     };
+
+    
+   
 }

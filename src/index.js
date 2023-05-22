@@ -19,14 +19,14 @@ var newProjectName = '';
 
 // create a function to change the project display area title to either inbox, 
 // today's tasks or this week's task
-setDisplayTitle();
+setDisplayTitle('Projects');
 
-// select the task display area to append new tasks created 
-const taskForm = document.querySelector('#task-form');
+// select the task display area to append the tasks form 
+const taskFormContainer = document.querySelector('#task-form-container');
 
-// create a blank task and append it to the selected projectList
-const newBlankTask = createTaskForm()
-taskForm.appendChild(newBlankTask);
+// create task form and append it to the selected projectList
+const taskForm = createTaskForm()
+taskFormContainer.appendChild(taskForm);
 
 // create some new tasks for a sample project House Cleaning
 // new Task(project, desc, dueDate, priority, taskArray)
@@ -72,14 +72,15 @@ newProjBtn.onclick = function(){
         alert("Add new project in field then click the + button again");
     } else{
         newProjectName = projToAdd.value
-    }
-
-    projectArray.push(newProjectName);
-    localStorage.removeItem('projects');
-    localStorage.setItem('projects', JSON.stringify(projectArray));    
-    projectList.innerHTML = '';
-    let projListText = createProjectList();
-    projectList.appendChild(projListText);
+        console.log(`In newProjBtn line 75 and the new project to add is ${newProjectName}`);
+        projectArray.push(newProjectName);
+        console.log(`In newProjBtn line 75 and projectArray is ${projectArray}`)
+        localStorage.removeItem('projects');
+        localStorage.setItem('projects', JSON.stringify(projectArray));    
+        projectList.innerHTML = '';
+        let projListText = createProjectList();
+        projectList.appendChild(projListText);
+    };
 };
 
 // Create a new function to add tasks to a project
@@ -97,6 +98,15 @@ addTaskBtn.onclick = function() {
     // Create a new task based on form values and push to taskArray
     let pname = taskProj.value;
     let taskArray = JSON.parse(localStorage.getItem(pname));
+    
+    if(taskArray === null){
+        let newTask = new Task(pname,taskDesc.value, taskDueDate.value, taskPriority.value);
+        taskArray = [newTask];
+        let taskProj = document.getElementById('task-project');
+        taskProj.value = pname;
+        localStorage.setItem(pname, JSON.stringify(taskArray));
+    }
+
     let newTask = new Task(taskProj.value, taskDesc.value, taskDueDate.value, taskPriority.value, taskArray)
    
     taskArray.push(newTask);
@@ -109,26 +119,17 @@ addTaskBtn.onclick = function() {
     taskTableBody.insertRow(taskRow);
 };
 
-
-
-
 // Create a function to refresh the task table
-// const refreshButton = document.querySelector('#refresh-button');
-
-// refreshButton.onclick = function(){
-//     // alert('You clicked the refresh button');
-//     var taskTableBody = document.getElementById('task-table-body');
-//     let taskTableRows = document.querySelectorAll('.task-row');
-//     let taskProj = document.getElementById('task-project');
-//     let pname = taskProj.value;
-//     if(taskTableRows) {
-//         for(let task of taskTableRows){
-//             taskTableBody.removeChild(task);
-//         };
-
-//     populateTaskList(taskArray, pname);
-//     };
-// };
+const refreshButton = document.querySelector('#refresh-button');
+refreshButton.addEventListener('click', function(){
+    // alert('You clicked the refresh button');
+    let displayTitle = document.getElementById('display-title');
+    let currentProject = displayTitle.textContent;
+    let taskTableContainer = document.getElementById('task-table-container');
+    taskTableContainer.innerHTML = '';
+    let refreshList = populateTaskList(currentProject);
+    taskTableContainer.appendChild(refreshList);    
+});
 
 
 

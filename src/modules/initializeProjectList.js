@@ -1,4 +1,3 @@
-// import { populateTaskList } from './populateTaskList';
 import { populateTaskList } from './populateTaskList';
 import { projDelBtn } from './deleteBtns';
 import { setDisplayTitle } from './setDisplayTitle';
@@ -13,9 +12,9 @@ export function initializeProjectList(){
     for(let prj of projectArray){
 
         let pname = String(prj);
-        console.log(`Inside initializeProjectList line16 and project pname is ${pname}`);
+        console.log(`Inside initializeProjectList line15 and project pname is ${pname}`);
         let index = projectArray.indexOf(prj);
-        console.log(`In initializeProjectList line 18 project is ${prj} index in projectArray is ${index}`);
+        console.log(`In initializeProjectList line 17 project is ${prj} index in projectArray is ${index}`);
 
         let projLineDiv = document.createElement('div');
         projLineDiv.className = 'projItem'
@@ -23,9 +22,11 @@ export function initializeProjectList(){
         let addPara = document.createElement('p');
         addPara.className = 'project-click'
         addPara.textContent = pname;
-        addPara.onclick = function(){
+        addPara.addEventListener ('click', function(){
+            console.log('inside initializeProjectList line 26');
             setDisplayTitle(prj);
-        };
+            populateTaskList(prj)
+        });
 
         let projectDeleteBtn = document.createElement('button')
         projectDeleteBtn.textContent = 'x'
@@ -37,12 +38,6 @@ export function initializeProjectList(){
 
         projLineDiv.appendChild(addPara);
         projLineDiv.appendChild(projectDeleteBtn);
-
-        addPara.onclick = function() {
-            let displayTitle = document.querySelector('#display-title');
-            displayTitle.textContent = `${pname} ToDos`;
-            populateTaskList(pname);
-        }
 
         newDiv.appendChild(projLineDiv); 
     };
