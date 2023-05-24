@@ -32,6 +32,43 @@ export function populateTaskList(pname){
     taskTableBody.className = 'task-table-body'
     taskTableBody.id = 'task-table-body';
 
+    let tableHeader = document.createElement('tr');
+    // tableHeader.innerHTML = `<th>Completed?</th>
+    //                          <th>${pname}</th>
+    //                          <th>Description</th>
+    //                          <th>Due Date</th>
+    //                          <th>Priority</th>
+    //                          <th>Delete?</th>
+    //                          `
+    let thc0 = document.createElement('thead');
+    let thc1 = document.createElement('thead');
+    let thc2 = document.createElement('thead');
+    let thc3 = document.createElement('thead');
+    let thc4 = document.createElement('thead')
+    let thc5 = document.createElement('thead');
+    let thc6 = document.createElement('thead');
+
+    thc0.innerText = 'Complete?';
+    thc1.innerText = 'Project';
+    thc2.innerText = 'Description';
+    thc3.innerText = 'Due Date';
+    thc4.innerText = 'Priority';
+    thc5.innerText = 'Complete Date'
+    thc6.innerText = 'Delete?';
+
+    tableHeader.appendChild(thc0);
+    tableHeader.appendChild(thc1);
+    tableHeader.appendChild(thc2);
+    tableHeader.appendChild(thc3);
+    tableHeader.appendChild(thc4);
+    tableHeader.appendChild(thc5);
+    tableHeader.appendChild(thc6);
+    
+
+    tableHeader.className = 'task-row'
+
+    taskTableBody.appendChild(tableHeader);
+
     for(let task of prjTaskArray){
 
         // console.log(`In populateTaskList Line 58 and task for project ${pname} is ${task.desc}`);
@@ -49,12 +86,15 @@ export function populateTaskList(pname){
         let c3 = document.createElement("td");
         let c4 = document.createElement("td");
         let c5 = document.createElement("td");
+        let c6 = document.createElement("td");
 
         
         c1.innerText = pname;
         c2.innerText = task.desc;
         c3.innerText = task.dueDate;
         c4.innerText = task.priority;
+        c5.innerText = 'Completed on'
+        // c5.className = 'hidden'
 
         let btn2 = document.createElement('input');
         btn2.type = 'button';
@@ -73,7 +113,7 @@ export function populateTaskList(pname){
                 };
             }
         )
-        c5.appendChild(btn2);
+        c6.appendChild(btn2);
 
         // add a button that strikes out text in row for completed
         let btn1 = document.createElement('input');
@@ -86,7 +126,7 @@ export function populateTaskList(pname){
                                 c2.className = 'strikeout';
                                 c3.className = 'strikeout';
                                 c4.className = 'strikeout';
-                                
+                                c5.className = 'strikeout';
                                 });
         c0.appendChild(btn1);
         
@@ -96,6 +136,7 @@ export function populateTaskList(pname){
         taskRow.appendChild(c3);
         taskRow.appendChild(c4);
         taskRow.appendChild(c5);
+        taskRow.appendChild(c6);
        
         taskTableBody.appendChild(taskRow);
                 

@@ -10,7 +10,8 @@
     --form-background: rgba(245, 255, 214, 225);
     --light-gray: rgb(240, 235, 235);
     --dark-green: dark-green;
-  }
+    --royal-blue: rgb(65,105,225)
+}
 
 
 #container {
@@ -252,6 +253,8 @@ i {
     align-items: center;
 }
 
+
+
 .task-row{
     text-align: center;
     height: 40px;
@@ -262,14 +265,28 @@ i {
     align-items: center;
 }
 
-td{
-    text-align: center;
+
+
+thead{
+    color: blue;
+    font-weight: 600px;
+    text-align: left;
     height: auto;
     width: auto;
     pointer-events: none;
     padding: 2px;
     background-color: var(--foreground);
-    position: relative;
+    padding-left: 10px;
+    border-bottom: 1px black solid;
+}
+
+td{
+    text-align: left;
+    height: auto;
+    width: auto;
+    pointer-events: none;
+    padding: 2px;
+    background-color: var(--foreground)
 }
 
 .strikeout{
