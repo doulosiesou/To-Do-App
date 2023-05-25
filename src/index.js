@@ -4,7 +4,6 @@ import { createTaskForm } from './modules/createTaskForm';
 import { Task } from './modules/createTask'
 import { initializeProjectList } from './modules/initializeProjectList';
 import { createProjectList } from './modules/createProjectList';
-import { projDelBtn } from './modules/deleteBtns';
 import { populateTaskList } from './modules/populateTaskList';
 
 // import webpack handlers for style sheets and images
@@ -98,26 +97,26 @@ addTaskBtn.onclick = function() {
     // Create a new task based on form values and push to taskArray
     let pname = taskProj.value;
     let taskArray = JSON.parse(localStorage.getItem(pname));
-    
+        
     if(taskArray === null){
-        let newTask = new Task(pname,taskDesc.value, taskDueDate.value, taskPriority.value);
+        let newTask = new Task(pname,taskDesc.value, taskDueDate.value, taskPriority.value, 'in-progress');
         taskArray = [newTask];
         let taskProj = document.getElementById('task-project');
         taskProj.value = pname;
         localStorage.setItem(pname, JSON.stringify(taskArray));
+    } else {
+        let newTask = new Task(taskProj.value, taskDesc.value, taskDueDate.value, taskPriority.value, 'in-progress');
+        taskArray.push(newTask);
+        localStorage.removeItem(pname);
+        localStorage.setItem(pname, JSON.stringify(taskArray));
     }
-
-    let newTask = new Task(taskProj.value, taskDesc.value, taskDueDate.value, taskPriority.value, taskArray)
-   
-    taskArray.push(newTask);
-    localStorage.removeItem(pname);
-    localStorage.setItem(pname, JSON.stringify(taskArray));
-
     // Call function populateTaskList for selected project
-    var taskTableBody = document.getElementById('task-table-body');
-    let taskRow = populateTaskList(pname);
-    taskTableBody.insertRow(taskRow);
-};
+    
+    let taskTable = populateTaskList(pname);
+    let display = document.getElementById('display');
+    display.appendChild(taskTable);
+}
+
 
 // Create a function to refresh the task table
 const refreshButton = document.querySelector('#refresh-button');
@@ -125,10 +124,11 @@ refreshButton.addEventListener('click', function(){
     // alert('You clicked the refresh button');
     let displayTitle = document.getElementById('display-title');
     let currentProject = displayTitle.textContent;
-    let taskTableContainer = document.getElementById('task-table-container');
+    let display = document.getElementById('display');
+    let taskTableContainer = document.getElementById('task-table-container')
     taskTableContainer.innerHTML = '';
     let refreshList = populateTaskList(currentProject);
-    taskTableContainer.appendChild(refreshList);    
+    display.appendChild(refreshList);    
 });
 
 

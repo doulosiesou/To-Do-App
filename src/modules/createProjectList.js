@@ -29,7 +29,6 @@ export function createProjectList(){
         });
 
         let projDeleteBtn = document.createElement('button')
-        projDeleteBtn.textContent = 'X'
         projDeleteBtn.className = 'proj-del-button';
         projDeleteBtn.id = index;
         projDeleteBtn.onclick = function(){
