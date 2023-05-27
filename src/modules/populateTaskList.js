@@ -82,9 +82,9 @@ export function populateTaskList(pname){
                                 c2.className = 'strikeout';
                                 c3.className = 'strikeout';
                                 c4.className = 'strikeout';
-                                c5.className = 'strikeout';
                                 task.status = 'complete';
                                 c5.textContent = `${task.status}`;
+                                c5.className = 'strikeout';
                                 // alert(`in btn1 click event and project is ${pname} and the task completed is ${prjTaskArray[indx].desc}`);
                                 localStorage.removeItem(pname);
                                 localStorage.setItem(pname, JSON.stringify(prjTaskArray));
