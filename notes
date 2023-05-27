@@ -33,20 +33,48 @@ Calendar week icon: <i class="fa-solid fa-calendar-week"></i>
 Tasks icon: <i class="fa-solid fa-list-check"></i>
 Plus icon: <i class="fa-solid fa-plus"></i>
 
-I need an array to store the projects and to store the tasks. Maybe an array of objects, where each object is a project that includes an array of tasks
+I need an array to store the projects and another array to store the tasks.
+projectArray stores projects and taskArray stores the tasks for each project.
 
-I need a function which retrieves a project and associated tasks and then renders them onto the project display area. I can either do this with a table
-that displays each task, or as divs like cards that display a task's properties including:
-  
-  Checkmark for complete
-  Title
+The project array stored in local storage is just a string, that is a list of
+the projects. 
+
+The task array stored in local storage is a JSON obect that has a project as key and then all the tasks as values (one value is also the project name): {project: "Yard Work", desc: "Mow grass", dueDate: "06-15-2023", priority: "low","in-progress"}
+desc
+: 
+"Mow grass"
+dueDate
+: 
+"06-15-2023"
+priority
+: 
+"low"
+project
+: 
+"Yard Work"
+status
+: 
+"in-progress"
+
+Both of these arrays are periodically stored in local storage using the
+setItem() method.
+
+I need a function which retrieves associated tasks for a given project and then renders them onto the project display area populateTaskList.js. 
+
+When the page starts up, it should load up the projectArray from local storage. The populateTaskList function populates the task table with values from localStorage.
+
+I can either do this with a table that displays each task, or as divs like cards that display a task's properties including: (I chose a table)
+
+Each table row has:
+
+  A button to mark task complete (changes cell class to .strikout)
+  Project
   Description
   Project
   Due Date
   Priority
-  'x' to delete the task from the list
-
-So a project will have a name and associated tasks while a task will have title, description, due date, priority, project and notes.
+  Project status (either 'in-progress' or 'completed')
+  A button to delete the task from the list and from the taskArray. 
 
 Functionality:
 Inbox button - displays all tasks that do not have a project associated with them

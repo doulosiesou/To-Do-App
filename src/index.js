@@ -9,9 +9,58 @@ import { populateTaskList } from './modules/populateTaskList';
 // import webpack handlers for style sheets and images
 import './style.css';
 
-// create an array to handle all of the projects, each project will have properties
-// for task name, description, associated project, project due date and priority
+// declare projectArray and taskArray then check local storage to load up projects and task array
+// projects are stored as strings in key 'projects'
+// tasks are stored as objects JSON.parse is necessary to read tasks from localStorage
+
+var taskArray = [];
 var projectArray = [];
+
+var checkLSTasks = function(projectArray){
+    let checkProjectArray = JSON.parse(localStorage.getItem('projects'))
+    // console.log(`Index line 21 checkLSTasks and checkProjectArray is ${checkProjectArray}`);
+
+    if(checkProjectArray){
+        projectArray = checkProjectArray
+        // console.log(`projectArray from localStorage exists and is ${projectArray}`);
+    } else{
+        // console.log(`projectArray from localStorage does not exist and will be created `);
+        let project1 = 'House Cleaning';
+        let project2 = 'Yard Work';
+        projectArray = [project1, project2];
+        localStorage.setItem(`projects`, JSON.stringify(projectArray));
+    };
+    // console.log(`in index.js line 56 in checkLSTasks and projectArray is ${projectArray}`);
+
+    for(let project of projectArray){
+        // console.log(`inside checkLSTasks line 59 and checkLSTasks project is ${project}`);
+        let checkTaskArray = JSON.parse(localStorage.getItem(project));
+        // console.log(`checkTaskArray line 61 checkTaskArray is ${checkTaskArray}`);
+        
+        if(checkTaskArray){
+            // console.log(`checkTaskArray line 64 and checkTaskArray[0] is ${checkTaskArray[0]}`);
+            taskArray = checkTaskArray;
+            console.log(`inside checkLSTasks lin 66 and now taskArray is ${taskArray}`);
+            return taskArray
+        } else{
+            let newTask1 = new Task('House Cleaning','Clean outside cage','5-20-2023', 'high', 'in-progress');
+            let newTask2 = new Task('House Cleaning', 'Clean inside cage', '5-23-2023', 'high', 'in-progress');
+            let newTask3 = new Task('House Cleaning', 'Clean refrigerator', '6-05-2023', 'low', 'in-progress');
+            let newTask4 = new Task('Yard Work','Mow grass', '06-15-2023', 'low', 'in-progress');
+            let newTask5 = new Task('Yard Work', 'Rake leaves', '06-16-2023', 'low', 'in-progress');
+            let newTask6 = new Task('Yard Work', 'Trim bushes', '06-20-2023', 'low', 'in-progress');
+            let tasksP1 = [newTask1, newTask2, newTask3];
+            let tasksP2 = [newTask4, newTask5, newTask6];
+            localStorage.setItem("House Cleaning", JSON.stringify(tasksP1));
+            localStorage.setItem("Yard Work", JSON.stringify(tasksP2));
+            taskArray = [tasksP1, tasksP2];
+            console.log(`inside checkLSTasks and taskArray is ${taskArray}`);
+            return taskArray;
+        }
+    };
+};
+checkLSTasks();
+
 
 // declare a global variable for newProjectName
 var newProjectName = '';
@@ -26,32 +75,6 @@ const taskFormContainer = document.querySelector('#task-form-container');
 // create task form and append it to the selected projectList
 const taskForm = createTaskForm()
 taskFormContainer.appendChild(taskForm);
-
-// create some new tasks for a sample project House Cleaning
-// new Task(project, desc, dueDate, priority, taskArray)
-let project1 = 'House Cleaning';
-let newTask1 = new Task('House Cleaning','Clean outside cage','5-20-2023', 'high');
-let newTask2 = new Task('House Cleaning', 'Clean inside cage', '5-23-2023', 'high');
-let newTask3 = new Task('House Cleaning', 'Clean refrigerator', '6-05-2023', 'low');
-
-const tasksP1 = [newTask1, newTask2, newTask3];
-projectArray.push(project1);
-
-// create some more tasks for another sample project Yard Work
-let project2 = 'Yard Work';
-let newTask4 = new Task('Yard Work','Mow grass', '06-15-2023', 'low');
-let newTask5 = new Task('Yard Work', 'Rake leaves', '06-16-2023', 'low');
-let newTask6 = new Task('Yard Work', 'Trim bushes', '06-20-2023', 'low');
-
-const tasksP2 = [newTask4, newTask5, newTask6];
-projectArray.push(project2);
-
-// Create localStorage keys and values for new tasks
-localStorage.setItem("House Cleaning", JSON.stringify(tasksP1));
-localStorage.setItem("Yard Work", JSON.stringify(tasksP2));
-
-// Create another localStorage key and save projectArray to localStorage
-localStorage.setItem(`projects`, JSON.stringify(projectArray));
 
 // Create a function to add a new project
 var projectList = document.querySelector('#project-list');
@@ -71,9 +94,9 @@ newProjBtn.onclick = function(){
         alert("Add new project in field then click the + button again");
     } else{
         newProjectName = projToAdd.value
-        console.log(`In newProjBtn line 75 and the new project to add is ${newProjectName}`);
+        console.log(`In newProjBtn line 74 and the new project to add is ${newProjectName}`);
         projectArray.push(newProjectName);
-        console.log(`In newProjBtn line 75 and projectArray is ${projectArray}`)
+        console.log(`In newProjBtn line 76 and projectArray is ${projectArray}`)
         localStorage.removeItem('projects');
         localStorage.setItem('projects', JSON.stringify(projectArray));    
         projectList.innerHTML = '';
