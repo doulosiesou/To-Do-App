@@ -1,3 +1,5 @@
+import { format, compareAsc } from 'date-fns';
+
 export function Task(project='inbox',desc, dueDate, priority, status='in-progress'){
 
     this.project = project;
@@ -5,4 +7,5 @@ export function Task(project='inbox',desc, dueDate, priority, status='in-progres
     this.dueDate = dueDate;
     this.priority = priority;
     this.status = status
+    this.completeDate 
 };

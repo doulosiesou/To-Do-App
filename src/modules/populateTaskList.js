@@ -1,4 +1,4 @@
-// import { Task } from "./createTask";
+import { format, compareAsc } from 'date-fns';
 
 export function populateTaskList(pname){
     console.log(`Inside populateTaskList line4 and pname is ${pname} and is type${typeof(pname)}`);
@@ -83,9 +83,14 @@ export function populateTaskList(pname){
                                 c3.className = 'strikeout';
                                 c4.className = 'strikeout';
                                 task.status = 'complete';
-                                c5.textContent = `${task.status}`;
-                                c5.className = 'strikeout';
+                                c5.className = 'complete-date';
+                                const cDate = format(new Date, 'MM/dd/yyyy');
+                                task.completeDate = cDate;
+                                c5.textContent = `${cDate}`;
                                 // alert(`in btn1 click event and project is ${pname} and the task completed is ${prjTaskArray[indx].desc}`);
+                                for(let t in prjTaskArray){
+                                    console.log(`In complete button code linke 92 and task complete date is ${task.completeDate}`)
+                                }
                                 localStorage.removeItem(pname);
                                 localStorage.setItem(pname, JSON.stringify(prjTaskArray));
                                 });
@@ -100,27 +105,33 @@ export function populateTaskList(pname){
         let c5 = document.createElement("td");
         let c6 = document.createElement("td");
         c6.className = 'delete-task-button-container'
-
+        
         c1.innerText = pname;
         c2.innerText = task.desc;
         c3.innerText = task.dueDate;
         c4.innerText = task.priority;
-        c5.innerText = String(task.status);
+        c5.innerText = task.status;
+        if(task.status === 'complete'){
+            c5.innerText = task.completeDate
+        } else{
+            c5.innerText = task.status
+        }
 
         if(task.status === 'complete'){
             c1.className = 'strikeout'
             c2.className = 'strikeout'
             c3.className = 'strikeout'
             c4.className = 'strikeout'
+            c5.className = 'complete-date'
         };
         
         let btn2 = document.createElement('input');
         btn2.type = 'button';
-        btn2.textContent = 'D'
         btn2.id = `db-${indx}`;
         btn2.className = 'task-delete-button';
         btn2.addEventListener("click", function(){
             let userInput = prompt(`Are you sure you want to delete this task: ${task.desc}? Answer y/n`);
+            alert('Use delete button only once then refresh list');
             if(userInput.toLowerCase === 'n') {
                 alert('You entered no to delete this task');
                 } else {

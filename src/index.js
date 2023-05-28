@@ -5,6 +5,10 @@ import { Task } from './modules/createTask'
 import { initializeProjectList } from './modules/initializeProjectList';
 import { createProjectList } from './modules/createProjectList';
 import { populateTaskList } from './modules/populateTaskList';
+import { format, compareAsc } from 'date-fns';
+
+const date = new Date();
+console.log(date);
 
 // import webpack handlers for style sheets and images
 import './style.css';
