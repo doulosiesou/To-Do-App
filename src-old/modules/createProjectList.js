@@ -1,7 +1,6 @@
 import { populateTaskList } from './populateTaskList';
 import { projDelBtn } from './deleteBtns'
 import { setDisplayTitle } from './setDisplayTitle'
-import { initializeTaskList } from './initializeTaskList';
 
 export function createProjectList(){
 
@@ -15,7 +14,7 @@ export function createProjectList(){
         let pname = String(prj);
         let index = projectArray.indexOf(prj);
 
-        let taskProjectDisplay = document.querySelector('#task-project');
+        let displayTitle = document.querySelector('#display-title');
 
         let projLineDiv = document.createElement('div');
         projLineDiv.className = 'projItem';
@@ -26,13 +25,7 @@ export function createProjectList(){
         addPara.addEventListener('click', function(){
             pname = addPara.textContent;
             setDisplayTitle(pname);
-            let prjTaskArray = JSON.parse(localStorage.getItem(pname));
-            if(prjTaskArray){
-                populateTaskList(pname);
-            } else{
-                taskProjectDisplay.value = pname;
-                initializeTaskList(pname)
-            }
+            populateTaskList(pname);
         });
 
         let projDeleteBtn = document.createElement('button')

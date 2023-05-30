@@ -1,11 +1,15 @@
-import { format, compareAsc } from 'date-fns';
-
-export function Task(project='inbox',desc, dueDate, priority, status='in-progress'){
-
-    this.project = project;
-    this.desc = desc;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.status = status
-    this.completeDate 
-};
+export function Task(
+  project = "inbox",
+  desc,
+  dueDate, //String In fornat of MM,dd,yyyy
+  priority,
+  status = "in-progress"
+) {
+  
+  this.project = project;
+  this.desc = desc;
+  this.dueDate = dueDate;
+  this.priority = priority;
+  this.status = status;
+  this.completeDate;
+}
