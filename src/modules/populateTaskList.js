@@ -5,17 +5,11 @@ export function populateTaskList(pname) {
   taskTableContainer.innerHTML = "";
 
   let prjTaskArray = JSON.parse(localStorage.getItem(pname));
+  prjTaskArray.sort(function (a, b) {
+    // Turn your strings into dates, and then subtract them
+    return new Date(a.dueDate) - new Date(b.dueDate);
+  });
   
-  if(prjTaskArray) {
-    prjTaskArray.sort(function (a, b) {
-      // Turn your strings into dates, and then subtract them
-      return new Date(a.dueDate) - new Date(b.dueDate);
-    });
-    for (let task of prjTaskArray) {
-      console.log(`inside populateTaskList line 15 and the project is ${task.project} and due date is ${task.dueDate}`);
-    };
-  };
-
   // Clear input fields in task form and change display title in
   // task area for current project
   let taskProj = document.getElementById("task-project");

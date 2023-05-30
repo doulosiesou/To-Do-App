@@ -5,6 +5,7 @@ import { Task } from "./modules/createTask";
 import { initializeProjectList } from "./modules/initializeProjectList";
 import { createProjectList } from "./modules/createProjectList";
 import { populateTaskList } from "./modules/populateTaskList";
+import { populateInboxTasks } from "./modules/populateInboxTasks";
 import { format, compareAsc } from "date-fns";
 
 const date = new Date();
@@ -91,11 +92,36 @@ var checkLSTasks = function (projectArray) {
         "low",
         "in-progress"
       );
+      let newTask7 = new Task(
+        "Inbox",
+        "Sort through canned foods",
+        "2023,06,01",
+        "low",
+        "in-progress"
+      );
+      let newTask8 = new Task(
+        "Inbox",
+        "Check tire pressure on truck",
+        "2023,06,05",
+        "low",
+        "in-progress"
+      );
+      let newTask9 = new Task(
+        "Inbox",
+        "Paint mailbox white",
+        "2023,07,15",
+        "low",
+        "in-progress"
+      );
+
       let tasksP1 = [newTask1, newTask2, newTask3];
       let tasksP2 = [newTask4, newTask5, newTask6];
+      let tasksP3 = [newTask7, newTask8, newTask9];
       localStorage.setItem("House Cleaning", JSON.stringify(tasksP1));
       localStorage.setItem("Yard Work", JSON.stringify(tasksP2));
-      taskArray = [tasksP1, tasksP2];
+      localStorage.setItem("Inbox", JSON.stringify(tasksP3));
+      
+      taskArray = [tasksP1, tasksP2, tasksP3];
       console.log(`inside checkLSTasks and taskArray is ${taskArray}`);
       return taskArray;
     }
@@ -202,7 +228,7 @@ addTaskBtn.onclick = function () {
 };
 
 // Create a function to refresh the task table
-const refreshButton = document.querySelector("#refresh-button");
+const refreshButton = document.querySelector("#refresh-icon");
 refreshButton.addEventListener("click", function () {
   // alert('You clicked the refresh button');
   let displayTitle = document.getElementById("display-title");
@@ -213,3 +239,11 @@ refreshButton.addEventListener("click", function () {
   let refreshList = populateTaskList(currentProject);
   display.appendChild(refreshList);
 });
+
+// Create a new function to populate the task fields with tasks due today
+const inboxButton = document.getElementById("inbox-icon");
+inboxButton.addEventListener("click", function(){
+  let displayTitle = document.getElementById("display-title");
+  displayTitle.textContent = "Inbox Tasks"
+  populateInboxTasks()
+})

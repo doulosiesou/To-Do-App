@@ -120,9 +120,21 @@ i {
     background-color: var(--foreground);
 }
 
-#add-project-icon{
+.inbox-icon,
+.today-icon,
+.thisweek-icon{
     cursor: pointer;
-    margin-left: 20px;
+    width: 24px;
+    background-color: var(--foreground);
+}
+
+#add-project-icon,
+#add-task-icon,
+#refresh-icon{
+    background-color: var(--foreground);
+    cursor: pointer;
+    width: 24px;
+    margin-left: 20px;    
 }
 
 #nav-panel-top>div>p{
@@ -216,10 +228,6 @@ i {
 
 .new-div{
     background-color: var(--foreground);
-}
-
-#add-task-icon{
-    cursor: pointer;
 }
 
 #task-form-container{
@@ -344,6 +352,7 @@ form{
     background-color: var(--foreground);
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: 10px;
 }
 
