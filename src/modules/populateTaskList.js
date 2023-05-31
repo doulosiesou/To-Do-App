@@ -1,4 +1,4 @@
-import { format, compareAsc } from "date-fns";
+import { format } from "date-fns";
 
 export function populateTaskList(pname) {
   let taskTableContainer = document.getElementById("task-table-container");

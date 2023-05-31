@@ -1,5 +1,5 @@
 export function Task(
-  project = "inbox",
+  project = "Inbox",
   desc,
   dueDate, //String In fornat of MM,dd,yyyy
   priority,

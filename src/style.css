@@ -104,7 +104,7 @@ GRAY COLOR: #7459C3
 
 #new-project-input{
     background-color: var(--form-background);
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 #inbox-label,
@@ -120,12 +120,16 @@ i {
     background-color: var(--foreground);
 }
 
-.inbox-icon,
-.today-icon,
-.thisweek-icon{
-    cursor: pointer;
+#inbox-icon,
+#today-icon,
+#thisweek-icon{
     width: 24px;
+    stroke: var(--dark-green);
     background-color: var(--foreground);
+}
+
+#inbox-icon-div{
+    cursor: pointer;
 }
 
 #add-project-icon,
@@ -196,7 +200,7 @@ i {
     margin: 5px 5px 0 0;
     background-color: var(--light-gray);
     border: 1px solid gray;
-    border-radius: 5px;
+    border-radius: 2px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -215,11 +219,12 @@ i {
     width: 25px;
     margin: 5px 20px 5px 0;
     background-color: rgb(255, 166, 0);
+    box-shadow: 2px 2px 4px rgba(50, 50, 50, 150);
     font-size: 12px;
     padding: 3px;
     text-align: center;
     margin-right: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
 }
 
 .project-click{
@@ -242,7 +247,7 @@ i {
     font-size: 18px;
     background-color: var(--foreground);
     border: 1px darkgreen solid;
-    border-radius: 10px;
+    border-radius: 2px;
     width: auto;
     display: flex;
     flex-direction: row;
@@ -266,6 +271,10 @@ i {
     align-items: center;
 }
 
+#task-table-header{
+    font-weight: 500px;
+}
+
 table {
     background-color: var(--foreground);
     border-collapse: collapse;
@@ -274,6 +283,7 @@ table {
   }
   
 th, td {
+    font-weight: 500px;
     background-color: var(--foreground);
     border: 3px solid #7459C3;
     padding: 2px 10px 2px 10px;
@@ -312,16 +322,24 @@ th{
 }
 
 .task-delete-button,
-.task-strikeout-button{
+.task-strikeout-button,
+.task-move-button{
     width: 25px;
+    height: 25px;
     background-color: rgb(146, 212, 115);
+    box-shadow: 2px 2px 4px rgba(50, 50, 50, 150);
+    cursor: pointer;
     pointer-events: all;
     font-size: 12px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 2px;
     margin-top: 5px;
     margin-bottom: 5px;
     padding: 3px;
+}
+
+.task-move-button{
+    background-color: var(--background);
 }
 
 .task-delete-button{
@@ -333,7 +351,7 @@ th{
 }
 
 input{
-    border-radius: 5px;
+    border-radius: 2px;
     font-size: 14px;
 }
 
@@ -342,7 +360,7 @@ input{
     padding: 0px 5px 0 5px;
     font-size: 18px;
     height: 25px;
-    border-radius: 5px;
+    border-radius: 2px;
     text-align: center;
 }
 
