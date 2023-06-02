@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="stylesheet" href="../src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+    <div id="container">
+        <div id = "header">&#x2713 My ToDo List</div>
+        <div id= "nav-panel">
+            <div id = "nav-panel-top">
+                <div id="inbox-icon-div">
+                    <img src="../src/images/inbox.svg" id="inbox-icon"  alt="inbox icon">
+                    <p id="inbox-label">Inbox</p>
+                </div>
+                <div id="today-icon-div">
+                    <img src="../src/images/today-icon.svg" id="today-icon" alt="Calendar icon for today">                    
+                    <p id="today-label">Today</p>
+                </div>
+                <div id="thisweek-icon-div">
+                    <img src="../src/images/thisweek-icon.svg" id="thisweek-icon"  alt="Calendar icon for this week">
+                    <p id="this-week-label">This Week</p>
+                </div>
+            </div>
+            <div id = "nav-panel-bottom">Project List</div>
+            
+            <div id="project-input">
+                <form action="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="add-project-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                      
+                    <label for="new-project-input" id="add-project-label">Add Project</label>
+                    <input type="text" id="new-project-input" placeholder="Inbox">
+                </form>
+            </div>
+            <div id="project-list"></div>
+        </div>
+        <div id="display">
+            <h2 id="display-title">Projects</h2>
+            <div class="display-icons">
+                <div id="display-head1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="add-task-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    <p id="add-task-label">Add Task</p>
+                </div>
+                <div id="display-head2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="refresh-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                      </svg>
+                    <p id="refresh-label">Refresh Task List</p>
+                </div>
+            </div>
+            <div id="task-form-container"></div>
+            <div id="move-project"></div>
+            <div id="task-table-container"></div>
+            
+        </div>
+        <div id="footer">Created by Origineering LLC</div>
+    </div>
+       
+    <script src="bundle.js"></script>
+</body>
+</html>
