@@ -24,10 +24,19 @@ export function createProjectList(){
         addPara.className = 'project-click'
         addPara.textContent = pname;
         addPara.addEventListener('click', function(){
+
             pname = addPara.textContent;
             setDisplayTitle(pname);
-            let prjTaskArray = JSON.parse(localStorage.getItem(pname));
-            if(prjTaskArray){
+            let prjTaskArray = [];
+
+            try{
+                prjTaskArray = JSON.parse(localStorage.getItem(pname));
+            } catch (error){
+                console.log(`in createProjectList ${error}`);
+                prjTaskArray = [];    
+            }
+            
+            if(prjTaskArray !== []){
                 populateTaskList(pname);
             } else{
                 taskProjectDisplay.value = pname;

@@ -1,4 +1,6 @@
 import { format } from "date-fns";
+import { Task } from "./createTask";
+import { populateTaskList } from "./populateTaskList";
 
 export function populateInboxTasks(pname) {
 
@@ -7,32 +9,26 @@ export function populateInboxTasks(pname) {
 
     let inboxTaskArray = JSON.parse(localStorage.getItem('Inbox'));
     console.log(`in populateInboxTasks line 9 and inboxTaskArray is ${inboxTaskArray}`);
-    
-    // for(let prj of projectArray){
-    //     inboxTaskArray = JSON.parse(localStorage.getItem(prj));
-    //     for(let task of inboxTaskArray){
-    //         if(task.project === 'Inbox'){
-    //             inboxTaskArray.push(task);
-    //         };
-    //     };
-    // };
 
     inboxTaskArray.sort(function (a, b) {
         // Turn your strings into dates, and then subtract them
         return new Date(a.dueDate) - new Date(b.dueDate);
     });
 
-    let taskProj = document.getElementById("task-project");
+    var taskProj = document.getElementById("task-project");
     taskProj.value = 'Inbox';
 
-    let taskDesc = document.getElementById("task-desc");
+    var taskDesc = document.getElementById("task-desc");
     taskDesc.value = "";
 
-    let taskDueDate = document.getElementById("task-dueDate");
+    var taskDueDate = document.getElementById("task-dueDate");
     taskDueDate.value = "";
 
-    let taskPriority = document.getElementById("task-priority");
+    var taskPriority = document.getElementById("task-priority");
     taskPriority.value = "";
+
+    // Select the currently hidden move-project-dropdown div
+    var moveProjectDiv = document.getElementById('move-project');
 
     // Create table and table header
     var taskTable = document.createElement("table");
@@ -145,14 +141,57 @@ export function populateInboxTasks(pname) {
         localStorage.setItem('Inbox', JSON.stringify(inboxTaskArray));
       });
 
+      // Add a button that moves this task to a project
+
       let btn2 = document.createElement('button');
-      btn2.className = "task-move-button";
+      btn2.id = "move-task-button";
       btn2.addEventListener('click', function(){
-        let userPrompt = prompt(`Do you want to move this task to another project?`)
+        let userPrompt = prompt(`Do you want to move this task to another project? y/n`);
+        if(userPrompt === 'y'){
+          alert('The form fields above are populated with the tasks editable values, Click to move task to apply changes');
+          // console.log('The form fields above are populated with the tasks editable values, click Submit Edits to apply changes');
+          taskProj.value = '';
+          taskDesc.value = task.desc;
+          let tdd = format(new Date(task.dueDate), "MM-dd-yyyy");
+          taskDueDate.value = tdd;
+          taskPriority.value = task.priority;
+          let moveTaskBtn = document.createElement('button');
+          moveTaskBtn.className = 'submit-move-button'
+          moveTaskBtn.textContent = 'Click to move task';
+          console.log(`inside populateInboxTasks line 158 and the task is ${task.project}`)
+          moveTaskBtn.addEventListener("click", function(task){
+            task.project = taskProj.value
+            console.log(`inside populateInboxTasks line 161 and the task is ${task.project} and index is ${indx}`);
+            
+            // Modify inboxTaskArray for removed project then save to localStorage
+            inboxTaskArray.splice(indx,1);
+            localStorage.removeItem('Inbox');
+            localStorage.setItem('Inbox', JSON.stringify(inboxTaskArray));
+            
+            let prjTaskArray = JSON.parse(localStorage.getItem(`${task.project}`))
+            task.desc = taskDesc.value
+            task.dueDate = format(new Date(taskDueDate.value), "MM-dd-yyyy");
+            task.priority = taskPriority.value
+            console.log(`inside populateInboxTasks line 173 and task info is:'\n ${task.project}'\n${task.desc}'\n${task.dueDate}'\n${task.priority}`);
+            console.log(`inside populateInboxTasks line 174 and the task project is ${task.project} and the task project is ${task.desc}`);
+            if(prjTaskArray){
+              prjTaskArray.push(task);
+            } else{
+              let newTask = new Task(task.project, task.desc, task.dueDate, task.priority, task.status);
+              prjTaskArray = [newTask]
+            }
+
+            console.log(`inside populateInboxTasks line 176 and the prjTaskArray is ${prjTaskArray.project}`);            
+            localStorage.removeItem(`${task.project}`);
+            localStorage.setItem(`${task.project}`, JSON.stringify(prjTaskArray));
+
+          })
+          moveProjectDiv.appendChild(moveTaskBtn);
+        }
+        // taskTableContainer.innerHTML = "";
+        // populateTaskList('Inbox');
       });
-  
-      
-  
+
       let btn3 = document.createElement("input");
       btn3.type = "button";
       btn3.id = `btn3-${indx}`;

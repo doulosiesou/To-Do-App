@@ -264,7 +264,7 @@ i {
 
 #task-table-container{
     background-color: var(--foreground);
-    padding: 20px;
+    padding: 10px 20px 20px 20px;
     width: auto;
     display: flex;
     flex-direction: column;
@@ -285,7 +285,7 @@ table {
 th, td {
     font-weight: 500px;
     background-color: var(--foreground);
-    border: 3px solid #7459C3;
+    border: 3px solid rgba(115, 89, 195, 0.5);
     padding: 2px 10px 2px 10px;
 }
 
@@ -297,10 +297,6 @@ th{
 .task-row{
     background-color: var(--foreground);
 }
-
-/* #task-table-container{
-    border: groove 2px darkgreen;
-} */
 
 .strikeout{
     position: relative;
@@ -323,7 +319,7 @@ th{
 
 .task-delete-button,
 .task-strikeout-button,
-.task-move-button{
+#move-task-button{
     width: 25px;
     height: 25px;
     background-color: rgb(146, 212, 115);
@@ -338,9 +334,52 @@ th{
     padding: 3px;
 }
 
+#move-task-button{
+    background-color: #7459C3;
+    width: 25px;
+    height: 25px;
+    box-shadow: 2px 2px 4px rgba(50, 50, 50, 150);
+    cursor: pointer;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
+}
+
+.submit-move-button{
+    width: auto;
+    background-color: #7359c391;
+    color: rgb(37, 5, 5);
+    box-shadow: 2px 2px 4px rgba(50, 50, 50, 150);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    border-radius: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 3px;
+}
+
 .task-move-button{
     background-color: var(--background);
 }
+
+.move-task-button-container{
+    text-align: center;
+}
+
+#move-project{
+    background-color: var(--foreground);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-left: 20px;
+}
+
 
 .task-delete-button{
     background-color: rgb(255, 166, 0)
