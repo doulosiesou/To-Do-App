@@ -7,22 +7,19 @@ import { createProjectList } from "./modules/createProjectList";
 import { populateTaskList } from "./modules/populateTaskList";
 import { populateInboxTasks } from "./modules/populateInboxTasks";
 import { checkLSTasks } from "./modules/checkLSTasks";
-
-
-const date = new Date();
-console.log(date);
-
+import { todaysTasks } from "./modules/todaysTasks";
 // import webpack handlers for style sheets and images
 import "./style.css";
+
+const todaysDate = new Date();
+console.log(todaysDate);
 
 // declare projectArray and taskArray then check local storage to load up projects and task array
 // projects are stored as strings in key 'projects'
 // tasks are stored as objects JSON.parse is necessary to read tasks from localStorage
+checkLSTasks();
 
-var taskArray = [];
 var projectArray = [];
-
-var taskArray = checkLSTasks(projectArray);
 
 // declare a global variable for newProjectName
 var newProjectName = "";
@@ -135,10 +132,22 @@ refreshButton.addEventListener("click", function () {
   display.appendChild(refreshList);
 });
 
-// Create a new function to populate the task fields with tasks due today
+// Create a new function to populate the inbox tasks table
 const inboxIconDiv = document.getElementById("inbox-icon-div");
 inboxIconDiv.addEventListener("click", function(){
   let displayTitle = document.getElementById("display-title");
   displayTitle.textContent = "Inbox"
   populateInboxTasks('Inbox');
+  // Create a new function to populate the inbox tasks table with tasks due today
 })
+
+// Create a new function to populate the task list with tasks due today.
+const todayIconDiv = document.getElementById('today-icon-div');
+todayIconDiv.addEventListener("click", function() {
+  let displayTitle = document.getElementById("display-title");
+  displayTitle.textContent = "Today's Tasks";
+  todaysTasks(todaysDate);
+  
+})
+
+

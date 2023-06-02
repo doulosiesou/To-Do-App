@@ -1,4 +1,5 @@
 import { Task } from "./createTask";
+import { format } from "date-fns";
 
 export function checkLSTasks(projectArray){
 
@@ -22,10 +23,11 @@ export function checkLSTasks(projectArray){
             console.log(`inside checkLSTasks line 22 and now taskArray is ${taskArray}`);
             return taskArray;
         } else {
+            let tDate = format(new Date(), 'MM-dd-yyyy');
             let newTask1 = new Task(
                 "House Cleaning",
                 "Clean outside cage",
-                "2023,05,31",
+                tDate,
                 "high",
                 "in-progress"
             );
@@ -53,7 +55,7 @@ export function checkLSTasks(projectArray){
             let newTask5 = new Task(
                 "Yard Work",
                 "Rake leaves",
-                "2023,06,16",
+                tDate,
                 "low",
                 "in-progress"
             );
@@ -74,7 +76,7 @@ export function checkLSTasks(projectArray){
             let newTask8 = new Task(
                 "Inbox",
                 "Check tire pressure on truck",
-                "2023,06,05",
+                tDate,
                 "low",
                 "in-progress"
             );
