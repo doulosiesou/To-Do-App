@@ -199,7 +199,7 @@ GRAY COLOR: #7459C3
 }
 
 #display {
-    background-image: url('./images/squared-paper-texture.jpg');
+    background-image: url('https://img.freepik.com/free-photo/squared-paper-texture_23-2147786544.jpg');
     background-size: 50%;
     grid-column-start: c2;
     grid-column-end: c3;
