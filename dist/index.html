@@ -12,39 +12,43 @@
     
 </head>
 <body>
+    <!-- The container has 3 columns and 3 rows -->
     <div id="container">
         <div id = "header">&#x2713 My ToDo List</div>
         <div id= "nav-panel">
             <div id = "nav-panel-top">
-                <div id="inbox-icon-div">
-                    <img src="../src/images/inbox.svg" id="inbox-icon"  alt="inbox icon">
-                    <p id="inbox-label">Inbox</p>
-                </div>
-                <div id="today-icon-div">
-                    <img src="../src/images/today-icon.svg" id="today-icon" alt="Calendar icon for today">                    
-                    <p id="today-label">Today</p>
-                </div>
-                <div id="thisweek-icon-div">
-                    <img src="../src/images/thisweek-icon.svg" id="thisweek-icon"  alt="Calendar icon for this week">
-                    <p id="this-week-label">This Week</p>
+                <div id="top-icons-container">
+                    <div id="inbox-icon-div">
+                        <div class="icon-container"><img src="../src/images/inbox.svg" id="inbox-icon"  alt="inbox icon"></div>
+                        <div class="icon-container"><p id="inbox-label">Inbox</p></div>
+                    </div>
+                    <div id="today-icon-div">
+                        <div class="icon-container"><img src="../src/images/today-icon.svg" id="inbox-icon"  alt="inbox icon"></div>
+                        <div class="icon-container"><p id="inbox-label">Today</p></div>
+                    </div>
+                    <div id="thisweek-icon-div">
+                        <div class="icon-container"><img src="../src/images/thisweek-icon.svg" id="thisweek-icon"  alt="Calendar icon for this week"></div>
+                        <div class="icon-container"><p id="this-week-label">This Week</p></div>
+                    </div>
                 </div>
             </div>
-            <div id = "nav-panel-bottom">Project List</div>
-            
+        
             <div id="project-input">
                 <form action="#">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="add-project-icon">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                     </svg>
-                      
+                        
                     <label for="new-project-input" id="add-project-label">Add Project</label>
                     <input type="text" id="new-project-input" placeholder="Inbox">
                 </form>
             </div>
+            <div id = "nav-panel-bottom">Project List</div>
             <div id="project-list"></div>
         </div>
+        <!--------------------------------------------------------------------------- -- -->
         <div id="display">
-            <h2 id="display-title">Projects</h2>
+            <h2 id="display-title"><p id="display-title-p">Projects</p></h2>
             <div class="display-icons">
                 <div id="display-head1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="add-task-icon">
@@ -64,7 +68,7 @@
             <div id="task-table-container"></div>
             
         </div>
-        <div id="footer">Created by Origineering LLC</div>
+        <div id="footer"><span> by Origineering LLC.</span> <span>Background grid paper image by <a href="https://www.freepik.com/free-photo/squared-paper-texture_2007563.htm#query=graph%20paper%20texture&position=3&from_view=keyword&track=ais">Freepik</a></span> </div>
     </div>
        
     <script src="bundle.js"></script>
