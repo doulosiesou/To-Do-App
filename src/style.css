@@ -122,9 +122,10 @@ GRAY COLOR: #7459C3
 #inbox-icon,
 #today-icon,
 #thisweek-icon{
-    width: 24px;
+    scale: 150%;
     stroke: var(--dark-green);
     background-color: var(--foreground);
+    cursor: pointer;
 }
 
 .icon-container{
@@ -133,14 +134,8 @@ GRAY COLOR: #7459C3
     background-color: var(--foreground);
 }
 
-#inbox-icon,
-#today-icon,
-#thisweek-icon{
-    background-color: var(--foreground);
-    cursor: pointer;
-}
-
 .icon-container p{
+    margin-left: 5px;
     background-color: var(--foreground);
 }
 
@@ -258,7 +253,7 @@ GRAY COLOR: #7459C3
 
 .projItem{
     margin: 5px 20px 10px 0;
-    background-image: url('./images/squared-paper-texture.jpg');
+    background-image: url('https://img.freepik.com/free-photo/squared-paper-texture_23-2147786544.jpg');
     background-size: 52%;
     /* background-color: var(--light-bluegray); */
     border: 2px solid gray;
@@ -272,7 +267,7 @@ GRAY COLOR: #7459C3
 
 .projItem>p{
     font-size: 18px;
-    font-weight: 500;
+    font-weight: 600;
     margin: 5px;
     padding: 0 0 0 20px;
     background-color: var(--light-gray);
@@ -503,11 +498,7 @@ input[type=text] {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    gap: 50%;
-}
-
-#footer span{
-    background-color: var(--foreground-transparent);
+    gap: 20px;
 }
 
 a:link{
