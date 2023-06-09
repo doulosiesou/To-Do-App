@@ -31,7 +31,7 @@ export function upcomingTasks(todaysDate) {
 
             if(taskDueDate === todaysDay){
                 todaysTasks.push(task);
-            } if(taskDueDate >= todaysDay && taskDueDate <= forwardDate ){
+            } if(taskDueDate > todaysDay && taskDueDate <= forwardDate ){
                 thisweeksTasks.push(task);
             };
         };
