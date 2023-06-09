@@ -13,7 +13,7 @@ export function populateTaskList(pname) {
   try{
     prjTaskArray = JSON.parse(localStorage.getItem(pname));
   } catch (error){
-    console.log(`in populateTaskList line 12 ${error}`);
+    console.log(`in populateTaskList line 16 ${error}`);
     prjTaskArray = [];    
   }
 
@@ -26,6 +26,7 @@ export function populateTaskList(pname) {
   // Clear input fields in task form and change display title in
   // task area for current project
   let taskProj = document.getElementById("task-project");
+  console.log(`in populateTaskList line 29 and taskProj is ${taskProj}`)
   taskProj.value = pname;
 
   let taskDesc = document.getElementById("task-desc");

@@ -1,9 +1,10 @@
 import { Task } from "./createTask";
-import { format } from "date-fns";
+import { format, addDays } from "date-fns";
 
-export function checkLSTasks(projectArray){
+export function checkLSTasks(){
 
     let taskArray = [];
+    let projectArray = [];
     let checkProjectArray = JSON.parse(localStorage.getItem("projects"));
   
     if (checkProjectArray) {
@@ -20,77 +21,87 @@ export function checkLSTasks(projectArray){
         let checkTaskArray = JSON.parse(localStorage.getItem(project));
         if (checkTaskArray) {
             taskArray = checkTaskArray;
-            console.log(`inside checkLSTasks line 22 and now taskArray is ${taskArray}`);
+            console.log(`inside checkLSTasks line 23 and now taskArray is ${taskArray}`);
             return taskArray;
         } else {
-            let tDate = format(new Date(), 'MM-dd-yyyy');
+            let tDate = new Date();
+            let tDateNext1 = addDays(tDate, 2);
+            let tDateNext2 = addDays(tDate, 4);
+            let tDateNext3 = addDays(tDate, 5);
             let newTask1 = new Task(
                 "House Cleaning",
-                "Clean outside cage",
+                "Clean laundry room",
                 tDate,
                 "high",
                 "in-progress"
             );
             let newTask2 = new Task(
                 "House Cleaning",
-                "Clean inside cage",
-                "2023,05,26",
+                "Clean windows",
+                tDateNext1,
                 "high",
                 "in-progress"
             );
             let newTask3 = new Task(
                 "House Cleaning",
-                "Clean refrigerator",
-                "2023,06,15",
-                "low",
+                "Mop floor",
+                tDateNext2,
+                "high",
                 "in-progress"
             );
             let newTask4 = new Task(
-                "Yard Work",
-                "Mow grass",
-                "2023,06,05",
+                "House Cleaning",
+                "Clean refrigerator",
+                tDateNext1,
                 "low",
                 "in-progress"
             );
             let newTask5 = new Task(
                 "Yard Work",
-                "Rake leaves",
+                "Mow grass",
                 tDate,
                 "low",
                 "in-progress"
             );
             let newTask6 = new Task(
                 "Yard Work",
-                "Trim bushes",
-                "2023,06,26",
+                "Rake leaves",
+                tDateNext2,
                 "low",
                 "in-progress"
             );
             let newTask7 = new Task(
-                "Inbox",
-                "Sort through canned foods",
-                "2023,06,01",
+                "Yard Work",
+                "Trim bushes",
+                tDate,
                 "low",
                 "in-progress"
             );
             let newTask8 = new Task(
+                "Inbox",
+                "Sort through canned foods",
+                tDateNext1,
+                "low",
+                "in-progress"
+            );
+            let newTask9 = new Task(
                 "Inbox",
                 "Check tire pressure on truck",
                 tDate,
                 "low",
                 "in-progress"
             );
-            let newTask9 = new Task(
+            let newTask10 = new Task(
                 "Inbox",
-                "Paint mailbox white",
-                "2023,07,15",
+                "Sweep front porch",
+                tDateNext3,
                 "low",
                 "in-progress"
             );
 
-            let tasksP1 = [newTask1, newTask2, newTask3];
-            let tasksP2 = [newTask4, newTask5, newTask6];
-            let tasksP3 = [newTask7, newTask8, newTask9];
+            let tasksP1 = [newTask1, newTask2, newTask3, newTask4];
+            let tasksP2 = [newTask5, newTask6, newTask7];
+            let tasksP3 = [newTask8, newTask9, newTask10];
             localStorage.setItem("House Cleaning", JSON.stringify(tasksP1));
             localStorage.setItem("Yard Work", JSON.stringify(tasksP2));
             localStorage.setItem("Inbox", JSON.stringify(tasksP3));

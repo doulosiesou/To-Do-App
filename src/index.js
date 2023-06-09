@@ -7,7 +7,8 @@ import { createProjectList } from "./modules/createProjectList";
 import { populateTaskList } from "./modules/populateTaskList";
 import { populateInboxTasks } from "./modules/populateInboxTasks";
 import { checkLSTasks } from "./modules/checkLSTasks";
-import { todaysTasks } from "./modules/todaysTasks";
+import { upcomingTasks } from "./modules/todaysTasks";
+
 // import webpack handlers for style sheets and images
 import "./style.css";
 
@@ -145,8 +146,8 @@ inboxIconDiv.addEventListener("click", function(){
 const todayIconDiv = document.getElementById('today-icon-div');
 todayIconDiv.addEventListener("click", function() {
   let displayTitle = document.getElementById("display-title");
-  displayTitle.textContent = "Today's Tasks";
-  todaysTasks(todaysDate);
+  displayTitle.textContent = "Upcoming Tasks";
+  upcomingTasks(todaysDate);
   
 })
 

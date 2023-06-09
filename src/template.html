@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do App</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Skranji:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+</head>
+<body>
+    <!-- The container has 3 columns and 3 rows -->
+    <div id="container">
+        <div id = "header">&#x2713 My ToDo List</div>
+        <div id= "nav-panel">
+            <div id = "nav-panel-top">
+                <div id="top-icons-container">
+                    <div id="inbox-icon-div">
+                        <div class="icon-container"><i class="ph ph-tray" id="inbox-icon"></i></div>
+                        <div class="icon-container"><p id="inbox-label">Inbox</p></div>
+                    </div>
+                    <div id="today-icon-div">
+                        <div class="icon-container"><i class="ph ph-calendar-blank" id="today-icon"></i></div>
+                        <div class="icon-container"><p id="inbox-label">Upcoming</p></div>
+                    </div>
+                </div>
+            </div>
+        
+            <div id="project-input">
+                <form action="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="add-project-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                        
+                    <label for="new-project-input" id="add-project-label">Add Project</label>
+                    <input type="text" id="new-project-input" placeholder="Inbox">
+                </form>
+            </div>
+            <div id = "nav-panel-bottom">Project List</div>
+            <div id="project-list"></div>
+        </div>
+        <!--------------------------------------------------------------------------- -- -->
+        <div id="display">
+            <h2 id="display-title"><p id="display-title-p">Projects</p></h2>
+            <div class="display-icons">
+                <div id="display-head1">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="add-task-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    <p id="add-task-label">Add Task</p>
+                </div>
+                <div id="display-head2">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" id="refresh-icon">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                      </svg>
+                    <p id="refresh-label">Refresh Task List</p>
+                </div>
+            </div>
+            <div id="task-form-container"></div>
+            <div id="move-project"></div>
+            <div id="task-table-container"></div>
+            
+        </div>
+        <div id="footer"><span>Created by Origineering LLC.</span><span>Background grid paper image by</span> <a href="https://www.freepik.com/free-photo/squared-paper-texture_2007563.htm#query=graph%20paper%20texture&position=3&from_view=keyword&track=ais">Freepik</a></div>
+    </div>
+    <script src="../dist/bundle.js"></script>
+    
+</body>
+</html>

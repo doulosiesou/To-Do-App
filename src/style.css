@@ -102,11 +102,13 @@ GRAY COLOR: #7459C3
 }
 
 #today-icon-div{
+    margin-bottom: 15px;
     background-color: var(--foreground);
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 5px;
+    border-bottom-right-radius: 10px;
 }
 
 #thisweek-icon-div{
@@ -146,8 +148,8 @@ GRAY COLOR: #7459C3
     flex-direction: column;
     background-color: var(--foreground);
     border-left: none;
-    border-top-right-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
     box-shadow: 3px 3px 5px rgba(150, 50, 50, .50);
 }
 
@@ -296,7 +298,7 @@ GRAY COLOR: #7459C3
 }
 
 #task-form-container{
-    /* background-color: rgba(201,186,247,0.5); */
+    margin-right: 25px;
     background-color: var(--foreground-transparent);
 }
 
@@ -354,6 +356,7 @@ th{
 }
 
 .task-row{
+    height: 40px;
     background-color: var(--foreground-transparent);
 }
 
@@ -444,13 +447,28 @@ th{
     margin-left: 20px;
 }
 
-
 .task-delete-button{
     background-color: rgb(255, 166, 0)
 }
 
 .high-priority{
     background-color: rgba(255, 0, 0, 0.377); 
+}
+
+#today-task-table-caption, 
+#thisweek-task-table-caption{
+    color: darkgreen;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-shadow: 2px 2px 2px gray;
+    background-color: var(--foreground-transparent);
+}
+
+.today-task-table-body{
+    margin-bottom: 100px;
 }
 
 input{
